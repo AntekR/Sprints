@@ -30,7 +30,7 @@ header{
 ul{
     display:none;
 }
-input{
+#nav-menu{
     display:none;
 }  
 input:checked  ~ ul{
@@ -44,4 +44,14 @@ li {
     padding: 10px;
     list-style: none;
     border-bottom: 1px solid grey;
+}
+form{
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    /* text-align:center; */
+}
+input{
+    display:block;
 }
