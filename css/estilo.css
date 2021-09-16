@@ -1,0 +1,25 @@
+#boton, #enlace-registro, #btn-registrar{
+    visibility: collapse;
+}
+#boton:checked ~ * #enlace-registro{
+    visibility:visible;  
+}
+body{
+    background-color: rgb(124, 127, 131);
+}
+h1{
+    background-color: rgb(92, 95, 99);
+    
+}
+nav label{
+    cursor:pointer;
+    
+}
+#nav-menu{
+    position:fixed;
+    right: -50px;
+    top: 28px;
+}
+#nav-menu:hover{
+    background-color:rgb(146, 150, 155);
+}
