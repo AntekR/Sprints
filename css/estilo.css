@@ -1,3 +1,13 @@
+*{
+    margin:0;
+    padding:0;
+}
+header{
+    background-color: grey;
+    height: 8vh;
+    display:flex;
+    justify-content: space-between;
+}
 #boton, #enlace-registro, #btn-registrar{
     visibility: collapse;
 }
@@ -5,20 +15,14 @@
     visibility:visible;  
 }
 body{
-    background-color: rgb(124, 127, 131);
+    background-color: rgba(124, 127, 131, 0.575);
 }
-h1{
-    background-color: rgb(92, 95, 99);
-    
+nav{
+    margin-top: 1vh;
+    font-size: 4vh;
 }
 nav label{
     cursor:pointer;
-    
-}
-#nav-menu{
-    position:fixed;
-    right: -50px;
-    top: 28px;
 }
 #nav-menu:hover{
     background-color:rgb(146, 150, 155);
