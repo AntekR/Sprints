@@ -1,11 +1,8 @@
 
 
-
-
-function checkNombre (){
+function checkNombre (valor){
     var nombre = document.getElementsById("nombre");
-    var letters = /^[A-Za-z]+$/;
-    var error = document.getElementsById("error");
+    var letters = /^[A-Za-z]+$/;   
     console.log("enviando...");
     
     if(form.nombre.value.match(letters))
@@ -14,27 +11,24 @@ function checkNombre (){
         {
             if(nombre.value.length>=4&& form.nombre.value.length <=30)
             {
-                return true;
+              return true;
             }
             else
-            {
-                alert("El nombre debe contener entre 4 y 30 caracteres");
-                return false;
+            {                
+              return false;
             }  
         }
         else
         {
-            alert("El campo no puede estar vacío");
-            return false;
+          return false;
         }
       
       }
     else
       {        
-        alert("El nombre no debe contener números");
         return false;
       }
 
 }
 
-/*module.exports= checkNombre;*/
+module.exports= checkNombre;
