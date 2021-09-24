@@ -45,8 +45,8 @@ function checkDir() {
 	
 
 }
- 
-checkDir();
+ checkDir();
+
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
