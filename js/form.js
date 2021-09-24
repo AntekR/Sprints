@@ -1,225 +1,78 @@
-const form = document.getElementById('form-registro');
-const name = document.getElementById('nombre');
-const phone = document.getElementById('telefono');
-const direction = document.getElementById('direccion');
-const email_ = document.getElementById('correo');
-const password = document.getElementById('contraseña');
-const values = document.querySelectorAll('#form-registro input');
 
-
-var field = {
-	nom: false,
-	tel : false,
-	dir: false,
-	email: false,
-	contr: false,
-
+function checkNombre (valor) {
+     if(valor.length==0) {
+       return false;
+     } else if(valor.length < 4 || valor.length > 30) {
+       return false;
+     } else if(valor.includes("0")|| valor.includes("1") || 
+     valor.includes("2") || valor.includes("3") || valor.includes("4") 
+     || valor.includes("5") || valor.includes("6") || valor.includes("7")  
+     || valor.includes("8") || valor.includes("9") ) {
+       return false;
+     } else {
+       return true;
+     }
 }
 
-function checkNombre() {
-	
-	
+function checkTelefono (valor) {
+     const enteros = /^(?:\+|-)?\d+$/;
+     if(valor.length==0) {
+       return false;
+     } else if(valor.length < 7 || valor.length > 7) {
+       return false;
+     } else if(valor.indexOf("0") ==enteros || valor.indexOf("1") ==enteros || 
+     valor.indexOf("2") ==enteros || valor.indexOf("3") ==enteros || valor.indexOf("4") ==enteros 
+     || valor.indexOf("5") ==enteros || valor.indexOf("6") ==enteros){
+       return false;
+     } else if(valor = 7){
+       return true;
+     } else {
+       return true;
+     }
+   }
 
-	const cnom = /^[a-zA-z\s]{4,30}$/;
-	
-	const valid = () =>{
-		
-		validField(cnom, name, 'nom');
-		return validField;
-	}
+function checkDir (valor) {
+     
+     const cdir = /[!"\($\)%&/\(\)=\?¡¿\*\+¨´\}\{_\.;:><|°\\\^'~]/;
 
-	const validField= (expression,input,campo)=>{
+     if(valor.length==0) {
+       return false;
+     } else if(valor.length == 0 || valor.length > 50) {
+       return false;
+     } else if(cdir.test(valor)) {
+       return false;
+     
+     } else if(!cdir.test(valor) || valor.includes(/^[#\-]$/)){
+       return true;
+     }
+}
+  
+function checkCorreo (valor) {
+     
+     const cemail = /^[a-zA-z0-9-.+-]+@[a-zA-Z0-9-.]+.com$/i;
 
-		if(expression.test(input.value)){
-			console.log('valido');
-			field[campo] = true;
-			console.log(field.nom);
-			
-		}else{
-			console.log('invalido');
-			field[campo] = false;
-			console.log(field.nom);
-			
-		}
-
-		return field.nom;
-	} 
-
-	values.forEach((input) =>{
-		input.addEventListener('keyup', valid);
-		input.addEventListener('blur', valid);
-	});
-
-	
-
+     if(valor.length==0) {
+       return false;
+     } else if(cemail.test(valor)) {
+       return true;
+     } else {
+       return false;
+     }
 }
 
-function checkTelefono() {
-	
-	
+function checkContrasena (valor) {
 
-	const ctel = /^[0-9]{4,30}$/;
-	
-	const valid = () =>{
-		
-		validField(ctel, phone, 'tel');
-		return validField;
-	}
+     const ccontra = /[a-zA-z0-9-.+-]+\d{7,}/;
 
-	const validField= (expression,input,campo)=>{
-
-		if(expression.test(input.value)){
-			console.log('valido');
-			field[campo] = true;
-			console.log(field.tel);
-			
-		}else{
-			console.log('invalido');
-			field[campo] = false;
-			console.log(field.tel);
-			
-		}
-
-		return field.tel;
-	} 
-
-	values.forEach((input) =>{
-		input.addEventListener('keyup', valid);
-		input.addEventListener('blur', valid);
-	});
-
-	
-
+     if(valor.length==0) {
+       return false;
+     } else if(valor.length < 7) {
+       return false;
+     } else if( ccontra.test(valor)) {
+       return true;
+     } else {
+       return false;
+     }
 }
 
-
-function checkDir() {
-	
-	
-
-	const cdir = /^[a-zA-z0-9#-\s]{0,50}$/;
-	
-	const valid = () =>{
-		
-		validField(cdir, direction, 'dir');
-		return validField;
-	}
-
-	const validField= (expression,input,campo)=>{
-
-		if(expression.test(input.value)){
-			console.log('valido');
-			field[campo] = true;
-			console.log(field.dir);
-			
-		}else{
-			console.log('invalido');
-			field[campo] = false;
-			console.log(field.dir);
-			
-		}
-
-		return field.dir;
-	} 
-
-	values.forEach((input) =>{
-		input.addEventListener('keyup', valid);
-		input.addEventListener('blur', valid);
-	});
-
-	
-
-}
-
-function checkEmail() {
-	
-	
-
-	const cemail = /^[a-zA-z0-9-.+-]+@[a-zA-Z0-9-.]+.com$/i;
-	
-	const valid = () =>{
-		
-		validField(cemail, email_, 'email');
-		return validField;
-	}
-
-	const validField= (expression,input,campo)=>{
-
-		if(expression.test(input.value)){
-			console.log('valido');
-			field[campo] = true;
-			console.log(field.email);
-			
-		}else{
-			console.log('invalido');
-			field[campo] = false;
-			console.log(field.email);
-			
-		}
-
-		return field.email;
-	} 
-
-	values.forEach((input) =>{
-		input.addEventListener('keyup', valid);
-		input.addEventListener('blur', valid);
-	});
-
-	
-
-}
-
-function checkContrasena() {
-	
-	
-
-	const ccontra = /[a-zA-z0-9-.+-]+\d{8,}/;
-	
-	const valid = () =>{
-		
-		validField(ccontra, password, 'contr');
-		return validField;
-	}
-
-	const validField= (expression,input,campo)=>{
-
-		if(expression.test(input.value)){
-			console.log('valido');
-			field[campo] = true;
-			console.log(field.contr);
-			
-		}else{
-			console.log('invalido');
-			field[campo] = false;
-			console.log(field.contr);
-			
-		}
-
-		return field.contr;
-	} 
-
-	values.forEach((input) =>{
-		input.addEventListener('keyup', valid);
-		input.addEventListener('blur', valid);
-	});
-
-	
-
-}
-
-module.exports = { checkNombre, checkTelefono, checkDir, checkEmail, checkContrasena};
-
-form.addEventListener('submit', (e) => {
-	e.preventDefault();
-	
-	if(field.nom==true && field.tel==true && field.dir==true && field.email==true && field.contr){
-		alert('Se han enviado correctamente los dats');
-		console.log('Enviado');
-		form.reset();
-	}else{
-		console.log('Hay datos invalidos');
-		alert('Datos invalidos');
-
-	}
-
-});
+module.exports = {checkNombre,checkTelefono,checkDir,checkCorreo,checkContrasena};
