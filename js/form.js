@@ -1,47 +1,18 @@
 
-var valor = document.getElementById("nombre");
+
 function checkNombre (valor) {
-  
-
-  function estaVacio(cadena) {
-  if(cadena.length=0) {
-    return true;
-  } else {
+  if(valor.length==0) {
     return false;
-  }
-}
-
-function validarLongitudCadena(cadena, minimo, maximo) {
-  if(cadena.length >= minimo && cadena.length <=maximo) {
-    return true;
-  } else {
+  } else if(valor.length < 4 || valor.length > 30) {
     return false;
-  }
-}
-
-function NoContieneNumeros(cadena) {  
-  const expresion1 = /^[A-Za-z]+$/;   
-  if(cadena.match(expresion1)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-  if(estaVacio(valor)) {
-    //alert("El nombre no puede estar vacío");
-    return false;
-  } else if(!validarLongitudCadena(valor, 4, 30)) {
-    //alert("El nombre debe tener una longitud entre 4 y 30")
-    return false;
-  } else if(!NoContieneNumeros(valor)) {
-    //alert("El nombre no puede contener números");
+  } else if(valor.indexOf("0") >= 0 || valor.indexOf("1") >= 0 || 
+  valor.indexOf("2") >= 0 || valor.indexOf("3") >= 0 || valor.indexOf("4") >= 0 
+  || valor.indexOf("5") >= 0 || valor.indexOf("6") >= 0 || valor.indexOf("7") >= 0 
+  || valor.indexOf("8") >= 0 || valor.indexOf("9") >= 0) {
     return false;
   } else {
     return true;
   }
 }
 
-//module.exports= checkNombre;
-
-
+module.exports = checkNombre;
