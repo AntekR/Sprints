@@ -1,33 +1,29 @@
-const form = document.getElementById('form-registro');
-const input = document.querySelectorAll('#direccion');
+const direccion = document.getElementById('direccion');
 
-const expression = /^[a-zA-Z0-9#-]{0,50}$/;
-const campo={
-     direccion : true;
+
+
+function checkDir(){
+    
+     let check = true;
+     const expression = /^[a-zA-z0-9#-]{0,50}$/;
+     const inputs = document.querySelectorAll('#direccion');
+
+     inputs.forEach((input) => {
+          
+          input.addEventListener('keyup', () => {
+               if (expression.test(input.value)){
+                    check = true;
+                    console.log('valido');
+                    return true;
+                    
+               }else{
+                    check = false;
+                    console.log('invalido');
+                    return false;
+               };
+          });
+     });
+     
 }
 
-const validForm = () =>{
-     validField(expression,'direccion');
-}
-
-const validField = (expresion, input, field) =>{
-     if(expresion.test(input.value)){
-          document.getElementById(`$(campo)`).classList.remove('direction_failed');
-          document.getElementById(`$(campo)`).classList.add('direction_correct');
-          campo[campo]=true;
-     }else{
-          document.getElementById(`$(campo)`).classList.add('direction_failed');
-          document.getElementById(`$(campo)`).classList.remove('direction_correct');
-          campo[campo]=false;
-
-     }
-}
-
-input.forEach((i) => {
-     i.addEventListener('keyup', validForm);
-     i.addEventListener('blur', validForm);
-});
-
-form.addEventListener('submit', (e) => {
-     e.preventDefault();
-})
+checkDir();
