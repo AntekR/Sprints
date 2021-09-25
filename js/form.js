@@ -1,4 +1,5 @@
 
+
 function checkNombre (valor) {
      if(valor.length==0) {
        return false;
@@ -76,3 +77,4 @@ function checkContrasena (valor) {
 }
 
 module.exports = {checkNombre,checkTelefono,checkDir,checkCorreo,checkContrasena};
+
