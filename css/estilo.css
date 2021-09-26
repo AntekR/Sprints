@@ -1,33 +1,21 @@
 *{
+    /* Para que el header no tenga margin y se vea unido al body */
     margin:0;
     padding:0;
 }
 header {
-    background-color: grey;
-    height: 8vh;
+    /* Se personaliza el header, donde esta el menu hamburguesa y logo */
+    background-color: rgba(128, 128, 128, 0.534);
+    height: 15vh;
     display:flex;
     justify-content: space-between;
 }
-#boton, #enlace-registro, #btn-registrar{
-    visibility: collapse;
+/* Titulos */
+h1{
+    margin : 4.5vh;
+    color: white;
 }
-#boton:checked ~ * #enlace-registro{
-    visibility:visible;  
-}
-body{
-    background-color: rgba(124, 127, 131, 0.575);
-}
-nav{
-    margin-top: 1vh;
-    font-size: 4vh;
-}
-nav label{
-    cursor:pointer;
-}
-#nav-menu:hover{
-    background-color:rgb(146, 150, 155);
-}
-/* Registro */
+
 h3{
     background-color:rgb(92, 95, 99) ;
     width: 210px;
@@ -41,6 +29,45 @@ h3{
     border-left:1px solid ;
     border-color: rgb(53, 53, 53);
 }
+/* Cuerpo */
+body{
+    background-image: url("../imgs/anton-maksimov-juvnsky-qM37iptlCNY-unsplash.jpg");
+    background-size: cover;
+}
+/* Menu hamburguesa */
+#boton, #enlace-registro, #btn-registrar{
+    visibility: collapse;
+    color: white;
+}
+#boton:checked ~ * #enlace-registro{
+    visibility:visible;  
+}
+
+nav{
+    margin-top: 1vh;
+    font-size: 4vh;
+}
+nav label{
+    margin: 0%;
+    display: block;
+    font-size: 10vh;
+    color: white;
+    cursor:pointer;
+}
+/* #nav-menu:hover{
+    
+    background-color:rgb(146, 150, 155);
+} */
+ul{
+    display:contents;
+    
+    padding: 8vh 6vh;
+    background-color: rgba(128, 128, 128, 0.788);
+}
+
+
+/* Registro */
+
 form{
     background-color: rgb(226, 226, 226);
     width: 210px;
